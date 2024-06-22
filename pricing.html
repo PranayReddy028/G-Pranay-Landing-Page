@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Plans</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Our Pricing Plans</h1>
+        <p>Choose the plan that fits your needs.</p>
+    </header>
+    
+    <section class="currency-toggle">
+        <label for="currency">Select Currency: </label>
+        <select id="currency">
+            <option value="$" data-rate="1">$ USD</option>
+            <option value="€" data-rate="0.85">€ EUR</option>
+            <option value="£" data-rate="0.75">£ GBP</option>
+        </select>
+    </section>
+
+    <section class="pricing-table">
+        <div class="pricing-option">
+            <h2>Basic Plan</h2>
+            <p class="price"><span class="currency-symbol">$</span><span class="price-value" data-usd="10">10</span><span>/month</span></p>
+            <ul>
+                <li>Access to basic features</li>
+                <li>5 GB storage</li>
+                <li>Email support</li>
+                <li>Community access</li>
+            </ul>
+            <button>Select Plan</button>
+        </div>
+        <div class="pricing-option highlighted">
+            <h2>Standard Plan</h2>
+            <p class="price"><span class="currency-symbol">$</span><span class="price-value" data-usd="20">20</span><span>/month</span></p>
+            <ul>
+                <li>Access to all basic features</li>
+                <li>50 GB storage</li>
+                <li>Priority email support</li>
+                <li>Community access</li>
+                <li>Monthly webinars</li>
+                <li>Basic analytics</li>
+            </ul>
+            <button>Select Plan</button>
+        </div>
+        <div class="pricing-option">
+            <h2>Premium Plan</h2>
+            <p class="price"><span class="currency-symbol">$</span><span class="price-value" data-usd="30">30</span><span>/month</span></p>
+            <ul>
+                <li>Access to all standard features</li>
+                <li>200 GB storage</li>
+                <li>24/7 phone and email support</li>
+                <li>Community access</li>
+                <li>Weekly webinars</li>
+                <li>Advanced analytics</li>
+                <li>Customizable reports</li>
+                <li>Dedicated account manager</li>
+            </ul>
+            <button>Select Plan</button>
+        </div>
+    </section>
+    
+    <section class="testimonials">
+        <h3>What Our Customers Say</h3>
+        <blockquote>
+            <p>"This service is fantastic! Highly recommend."</p>
+            <cite>- Happy Customer</cite>
+        </blockquote>
+    </section>
+    
+    <section class="faq">
+        <h3>Frequently Asked Questions</h3>
+        <div class="faq-item">
+            <h4>What is included in the Basic Plan?</h4>
+            <p>The Basic Plan includes access to basic features, 5 GB storage, email support, and community access.</p>
+        </div>
+        <!-- Add more FAQ items as needed -->
+    </section>
+    
+    <footer>
+        <p>&copy; 2024 Pricing Page. All rights reserved.</p>
+        <p>Contact us at: <a href="mailto:support@example.com">pranayreddyg28@gmail.com</a></p>
+    </footer>
+    
+    <script>
+        document.getElementById('currency').addEventListener('change', function() {
+            var selectedCurrency = this.options[this.selectedIndex];
+            var rate = selectedCurrency.getAttribute('data-rate');
+            var symbol = selectedCurrency.value;
+            var priceElements = document.querySelectorAll('.price-value');
+
+            priceElements.forEach(function(priceElement) {
+                var usdPrice = priceElement.getAttribute('data-usd');
+                var convertedPrice = (usdPrice * rate).toFixed(2);
+                priceElement.textContent = convertedPrice;
+                priceElement.previousElementSibling.textContent = symbol;
+            });
+        });
+    </script>
+</body>
+</html>
